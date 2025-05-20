@@ -1,0 +1,30 @@
+{
+	"name": "dsa",
+	"version": "1.0.0",
+	"description": "Data Structures and Algorithms",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/oknott14/DSA.git"
+	},
+	"author": "Owen Knott",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/oknott14/DSA/issues"
+	},
+	"homepage": "https://github.com/oknott14/DSA#readme",
+	"devDependencies": {
+		"@jest/globals": "^29.7.0",
+		"@types/jest": "^29.5.14",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.3.4",
+		"typescript": "^5.8.3"
+	},
+	"jest": {
+		"preset": "ts-jest",
+		"testEnvironment": "node"
+	}
+}
