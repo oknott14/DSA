@@ -1,0 +1,19 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "Data Structures and Algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oknott14/DSA.git"
+  },
+  "author": "Owen Knott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oknott14/DSA/issues"
+  },
+  "homepage": "https://github.com/oknott14/DSA#readme"
+}
