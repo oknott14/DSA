@@ -1,5 +1,5 @@
 import { randomInt } from 'crypto';
-import { MedianFinder } from '../median-of-data-stream';
+import { MedianFinder } from './code';
 
 describe('median-of-data-stream', () => {
 	describe('Min Max Heap MedianFinder', () => {

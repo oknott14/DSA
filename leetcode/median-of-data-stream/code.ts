@@ -39,7 +39,7 @@
  * If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
  * If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
  */
-import { HeapArray } from '../data_structures/heaps/heap-array';
+import { HeapArray } from '../../TypeScript/data_structures/heaps/heap-array';
 
 export class MedianFinder {
 	min: HeapArray<number>;
