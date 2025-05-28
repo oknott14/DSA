@@ -9,6 +9,6 @@
 		"forceConsistentCasingInFileNames": true,
 		"sourceMap": true
 	},
-	"include": ["typescript/**/*.ts"],
+	"include": ["**/*.ts"],
 	"exclude": ["node_modules"]
 }
