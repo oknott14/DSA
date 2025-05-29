@@ -4,7 +4,8 @@
 	"description": "Data Structures and Algorithms",
 	"main": "index.js",
 	"scripts": {
-		"test": "jest"
+		"test": "jest",
+		"create-leetcode": "bash ./leetcode/create-problem.sh"
 	},
 	"repository": {
 		"type": "git",
