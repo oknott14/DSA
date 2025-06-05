@@ -1,7 +1,4 @@
-
-
 TEST_TEMPLATE='''class Solution:\n\tdef prob_function():\n\t\tpass\n\nsoln = Solution()\n\ndef test_case_1():\n\tassert true'''
-$1=$1 -replace 
 DIRECTORY_PATH="./leetcode/$1"
 TEST_FILE_PATH="$DIRECTORY_PATH/test_$1.py"
 
