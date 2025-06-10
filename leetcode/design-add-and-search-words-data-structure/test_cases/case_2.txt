@@ -1,0 +1,14 @@
+WordDictionary  null
+addWord at null
+addWord and null
+addWord an null
+addWord add null
+search a false
+search .at false
+addWord bat null
+search .at true
+search an. true
+search a.d. false
+search b. false
+search a.d true
+search . false

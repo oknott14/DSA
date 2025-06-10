@@ -1,0 +1,8 @@
+WordDictionary  null
+addWord bad null
+addWord dad null
+addWord mad null
+search pad false
+search bad true
+search .ad true
+search b.. true
