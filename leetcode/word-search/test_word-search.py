@@ -22,9 +22,7 @@ class Solution:
         
       visited.remove((n * row) + col)
       return False
-    
-    w_count = collections.Counter(word)
-    b_count = collections.Counter()
+
     return any(dfs(r, c, 0) for r in range(m) for c in range(n))
   
 soln = Solution()
