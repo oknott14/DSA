@@ -1,4 +1,4 @@
-from typing import List, OrderedDict
+from typing import List, Ordered
 
 
 class LRUCache:

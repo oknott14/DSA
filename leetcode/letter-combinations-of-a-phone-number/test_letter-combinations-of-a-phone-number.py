@@ -99,3 +99,7 @@ def test_with_7():
         "cse",
         "csf",
     ]
+
+def test_nums():
+    assert '88' < '99'
+    assert '88' < '89'
