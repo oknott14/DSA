@@ -1,15 +1,27 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        dp = [[1] * n]
+        
+        dp = [[0] * n for _ in range(m)]
+        dp[0] = [1] * n
 
-        for row in range(1, m):
-            dp.append([0] * n)
+        for row in range(m):
             dp[row][0] = 1
-            for col in range(1, n):
-                dp[row][col] = dp[row - 1][col] + dp[row][col - 1]
-        return dp[m - 1][n - 1]
+        
+        def compute_paths(row: int, col: int):
+            if 0 < dp[row][col]:
+                return dp[row][col] 
+            else:
+                paths = compute_paths(row - 1, col) + compute_paths(row, col - 1)
 
-
+                if row < m and col < n:
+                    dp[row][col] = paths
+                
+                if col < m and row < n:
+                    dp[col][row] = paths
+                
+                return paths
+            
+        return compute_paths(m - 1, n - 1)
 soln = Solution()
 
 
