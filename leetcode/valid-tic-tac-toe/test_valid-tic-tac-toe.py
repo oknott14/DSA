@@ -4,28 +4,30 @@ from typing import List
 class Solution:
     def validTicTacToe(self, board: List[str]) -> bool:
         diff = 0
-        inc = {"X": 1, "O": -1, " ": 0}
-        x_winner = o_winner = False
-        row_sum = col_sum = 0
-
+        down = accross = 0
+        cost = {"X": 1, "O": -1, " ": 0}
+        x_wins = o_wins = False
         for iter in range(3):
             for idx in range(3):
-                diff += inc[board[iter][idx]]
-                row_sum += inc[board[iter][idx]]
-                col_sum += inc[board[idx][iter]]
+                down += cost[board[idx][iter]]
+                accross += cost[board[iter][idx]]
 
-            x_winner = x_winner or row_sum == 3 or col_sum == 3
-            o_winner = o_winner or row_sum == -3 or col_sum == -3
+            diff += down
+            x_wins = x_wins or down == 3 or accross == 3
+            o_wins = o_wins or down == -3 or accross == -3
+            down = accross = 0
 
-            if x_winner and o_winner:
-                return False
-            row_sum = 0
-            col_sum = 0
+        d1 = d2 = 0
+        for idx in range(3):
+            d1 += cost[board[idx][idx]]
+            d2 += cost[board[idx][2 - idx]]
 
-        return (
-            (x_winner and diff == 1)
-            or (o_winner and diff == 0)
-            or (not (x_winner or o_winner) and (diff == 1 or diff == 0))
+        x_wins = x_wins or d1 == 3 or d2 == 3
+        o_wins = o_wins or d1 == -3 or d2 == -3
+
+        return (0 <= diff <= 1) and (
+            ((x_wins and diff == 1) or (o_wins and diff == 0) or not (x_wins or o_wins))
+            and (not (x_wins and o_wins))
         )
 
 
@@ -71,8 +73,4 @@ def test_case_107():
 
 
 def test_case_108():
-    assert not soln.validTicTacToe([
-        "OXX", 
-        "XOX", 
-        "OXO"
-        ])
+    assert not soln.validTicTacToe(["OXX", "XOX", "OXO"])
