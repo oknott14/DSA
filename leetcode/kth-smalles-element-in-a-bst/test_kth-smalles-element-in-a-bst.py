@@ -10,23 +10,43 @@ class TreeNode:
 
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        queue: List[TreeNode] = []
+        rv = [root]
 
-        def insert_left(node: TreeNode):
-            queue.insert(0, node)
-            while node.left:
-                node = node.left
-                queue.insert(0, node)
+        def get_kth(node: Optional[TreeNode], count: int):
+            if node is None:
+                return count
 
-        insert_left(root)
+            count = get_kth(node.left, count) - 1
 
-        while 0 < k:
-            curr = queue.pop(0)
-            k -= 1
-            if curr.right is not None:
-                insert_left(curr.right)
+            if count == 0:
+                rv[0] = node
+                count -= 1
+            elif 0 < count:
+                count = get_kth(node.right, count)
 
-        return curr.val
+            return count
+
+        get_kth(root, k)
+        return rv[0].val
+
+    # def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+    # queue: List[TreeNode] = []
+
+    # def insert_left(node: TreeNode):
+    #     queue.insert(0, node)
+    #     while node.left:
+    #         node = node.left
+    #         queue.insert(0, node)
+
+    # insert_left(root)
+
+    # while 0 < k:
+    #     curr = queue.pop(0)
+    #     k -= 1
+    #     if curr.right is not None:
+    #         insert_left(curr.right)
+
+    # return curr.val
 
     def build_tree(
         self, tree_arr: List[int | None], index: int = 0
