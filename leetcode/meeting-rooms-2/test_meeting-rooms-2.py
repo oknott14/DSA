@@ -1,3 +1,4 @@
+import heapq
 from typing import List, Tuple
 
 
@@ -28,14 +29,14 @@ class MinHeap:
     def pop(self):
         n = len(self.heap_arr) - 1
         self.heap_arr.append(self.heap_arr[n])
+
         self.heap_arr[0], self.heap_arr[n] = self.heap_arr[n], self.heap_arr[0]
-        n-=1
         idx = 0
 
-        while idx < n:
+        while idx <= n // 2:
             child = (
                 2 * idx + 1
-                if self.heap_arr[2 * idx + 1] < self.heap_arr[2 * idx + 2]
+                if self.heap_arr[2 * idx + 1] <= self.heap_arr[2 * idx + 2]
                 else 2 * idx + 2
             )
 
@@ -62,15 +63,15 @@ class MinHeap:
 class Solution:
     def minMeetingRooms(self, intervals: List[Interval]) -> int:
         intervals.sort(key=lambda interval: interval.start)
-        min_heap = MinHeap()
+        min_heap = []
 
         for interval in intervals:
-            if min_heap.length() and min_heap.head() <= interval.start:
-                min_heap.pop()
+            if min_heap and min_heap[0] <= interval.start:
+                heapq.heappop(min_heap)
 
-            min_heap.push(interval.end)
+            heapq.heappush(min_heap, interval.end)
 
-        return min_heap.length()
+        return len(min_heap)
 
 
 soln = Solution()
@@ -108,3 +109,27 @@ def test_case_3():
     )
 
     assert soln.minMeetingRooms(intervals) == 3
+
+
+def test_case_4():
+    intervals = build_intervals(
+        [
+            (0, 10),
+            (10, 20),
+            (20, 30),
+            (30, 40),
+            (40, 50),
+            (50, 60),
+            (60, 70),
+            (70, 80),
+            (80, 90),
+            (90, 100),
+            (0, 100),
+            (10, 90),
+            (20, 80),
+            (30, 70),
+            (40, 60),
+        ]
+    )
+
+    assert soln.minMeetingRooms(intervals) == 6
