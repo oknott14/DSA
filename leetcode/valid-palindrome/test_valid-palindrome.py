@@ -2,7 +2,18 @@ class Solution:
     def isPalindrome(self, s: str) -> bool:
         alpha = "abcdefghijklmnopqrstuvwxyz0123456789"
         ans = "".join([ch for ch in s.lower() if ch in alpha])
-        return True if ans == ans[::-1] else False
+
+        left = 0
+        right = len(ans) - 1
+
+        while left < right:
+            if ans[left] != ans[right]:
+                return False
+
+            left += 1
+            right -= 1
+
+        return True
 
 
 soln = Solution()
