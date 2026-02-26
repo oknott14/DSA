@@ -28,15 +28,16 @@ export function twoSumWith2Pointers(nums: number[], target: number): number[] {
 	let left = 0;
 	let right = nums.length - 1;
 
-	while (left <= right) {
-		if (nums[indexes[left]] + nums[indexes[right]] == target) {
-			return [indexes[left], indexes[right]];
-		} else if (nums[indexes[left]] + nums[indexes[right]] < target) {
+	while (
+		left <= right &&
+		nums[indexes[left]] + nums[indexes[right]] != target
+	) {
+		if (nums[indexes[left]] + nums[indexes[right]] < target) {
 			left++;
 		} else {
 			right--;
 		}
 	}
 
-	return [];
+	return [indexes[left], indexes[right]];
 }
