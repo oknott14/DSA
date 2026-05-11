@@ -12,3 +12,18 @@
 - Monotonic Stack — Next greater/smaller element, histogram and span problems
 - XOR Tricks — Finding unique/missing elements in O(n) time and O(1) space
 - Interval Merge / Line Sweep — Overlapping interval detection, scheduling problems
+
+
+
+Hashing
+Linked lists
+Stacks and queues
+Trees and graphs
+Heaps
+Greedy
+Binary search
+Backtracking
+Dynamic programming
+Interviews and tools
+Bonus
+Hashing
